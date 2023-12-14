@@ -1,11 +1,10 @@
 package com.example.universitymanagementsystem.Controllers;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.example.universitymanagementsystem.Payload.StudentDTO;
 import com.example.universitymanagementsystem.Service.StudentService;
-import com.example.universitymanagementsystem.Utils.StudentDTO;
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<StudentDTO> getStudentById(@PathVariable Long id) {
+    public  ResponseEntity<StudentDTO> getStudentById(@PathVariable Long id) {
         StudentDTO student = studentService.getStudentById(id);
         return ResponseEntity.ok(student);
     }
@@ -40,10 +39,12 @@ public class StudentController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
-        studentService.deleteStudent(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<String> deleteStudent(@PathVariable Long id) {
+    studentService.deleteStudent(id);
+    String message = "Student with ID " + id + " has been deleted successfully.";
+    return ResponseEntity.ok(message);
     }
+
     
 
 }

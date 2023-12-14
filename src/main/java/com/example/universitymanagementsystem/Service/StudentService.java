@@ -1,8 +1,7 @@
 package com.example.universitymanagementsystem.Service;
 
 import java.util.List;
-
-import com.example.universitymanagementsystem.Utils.StudentDTO;
+import com.example.universitymanagementsystem.Payload.StudentDTO;
 
 public interface StudentService {
 
