@@ -1,4 +1,5 @@
 package com.example.universitymanagementsystem.Service.ServiceImpl;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,14 +19,13 @@ public class StudentServiceImpl implements StudentService {
     private StudentRepository studentRepository;
     @Autowired
     private ModelMapper modelMapper;
-   
-    
+
     @Override
     public List<StudentDTO> getAllStudents() {
         return studentRepository.findAll()
-        .stream().map(student -> modelMapper.map(student, StudentDTO.class))
-        .collect(Collectors.toList());
-    
+                .stream().map(student -> modelMapper.map(student, StudentDTO.class))
+                .collect(Collectors.toList());
+
     }
 
     @Override
@@ -58,7 +58,3 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.deleteById(id);
     }
 }
-
-
-
-

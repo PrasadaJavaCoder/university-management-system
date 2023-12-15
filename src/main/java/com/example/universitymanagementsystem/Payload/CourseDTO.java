@@ -1,28 +1,16 @@
-package com.example.universitymanagementsystem.Entity;
+package com.example.universitymanagementsystem.Payload;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "courses")
-public class Course {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "course_id")
+// @Data
+// @AllArgsConstructor
+// @NoArgsConstructor
+public class CourseDTO {
     private Long courseId;
-
-    @Column(name = "course_name", nullable = false)
     private String courseName;
-
-    @Column(name = "course_code", unique = true, nullable = false)
     private String courseCode;
-
-    @Column(name = "credit_hours")
     private Integer creditHours;
 
     public Long getCourseId() {
@@ -56,5 +44,5 @@ public class Course {
     public void setCreditHours(Integer creditHours) {
         this.creditHours = creditHours;
     }
-    
+
 }
